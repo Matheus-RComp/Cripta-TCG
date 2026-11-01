@@ -15,33 +15,46 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0b0f19;
-            color: #f3f4f6;
+            background-color: #0c0c0e; /* Fundo preto profundo e imersivo */
+            color: #e5e7eb;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            background-image: radial-gradient(circle at center, #1f1f23 0%, #0c0c0e 100%);
         }
 
         .container {
             text-align: center;
-            background: rgba(17, 24, 39, 0.9);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            max-width: 500px;
+            background: rgba(20, 20, 24, 0.95);
+            padding: 45px 35px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.4); /* Dourado/Amarelo refinado */
+            max-width: 520px;
             width: 100%;
-            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Foto de perfil / Logo com moldura em tons de azul/ciano do tema */
+        /* Efeito decorativo de brilho no topo */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #eab308, transparent);
+        }
+
+        /* Moldura e adaptação da foto de perfil com conversão exata para Amarelo/Dourado e Preto */
         .profile-img-container {
             position: relative;
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 15px auto;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px auto;
         }
 
         .profile-img {
@@ -49,15 +62,24 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+            border: 3px solid #eab308;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.5);
+            /* Filtros avançados para transformar os tons frios/azuis da imagem original em amarelo, dourado e preto/cinzento */
+            filter: grayscale(40%) sepia(100%) hue-rotate(-20deg) saturate(450%) contrast(1.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 35px rgba(234, 179, 8, 0.8);
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         .subtitle {
@@ -66,24 +88,24 @@
             margin-bottom: 25px;
         }
 
-        /* Abas de Navegação Interna */
+        /* Abas de Navegação Interna Interativas */
         .tabs-nav {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 25px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 12px;
         }
 
         .tab-btn {
-            background: transparent;
-            border: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: #9ca3af;
             font-family: 'Poppins', sans-serif;
             font-size: 13px;
             font-weight: 500;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -91,64 +113,74 @@
 
         .tab-btn:hover {
             color: #ffffff;
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(234, 179, 8, 0.15);
+            border-color: rgba(234, 179, 8, 0.3);
         }
 
         .tab-btn.active {
-            color: #ffffff;
-            background: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            color: #121212;
+            background: #eab308;
+            border-color: #eab308;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.6);
         }
 
-        /* Conteúdo das Abas */
+        /* Conteúdo das Abas Dinâmicas */
         .tab-content {
             display: none;
             text-align: left;
-            background: rgba(11, 15, 25, 0.6);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 15, 18, 0.85);
+            padding: 22px;
+            border-radius: 14px;
+            border: 1px solid rgba(234, 179, 8, 0.15);
             margin-bottom: 25px;
-            min-height: 120px;
-            max-height: 180px;
+            min-height: 130px;
+            max-height: 200px;
             overflow-y: auto;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         .tab-content.active {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .tab-content h3 {
-            font-size: 15px;
-            color: #38bdf8;
+            font-size: 16px;
+            color: #eab308;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .tab-content p, .tab-content ul {
             font-size: 13px;
             color: #d1d5db;
-            line-height: 1.4;
+            line-height: 1.5;
             padding-left: 15px;
         }
 
         .tab-content li {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
-        /* Botão principal de ir para o canal */
+        /* Botão principal interativo para ir para o canal */
         .btn-youtube {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             background: linear-gradient(135deg, #ef4444, #dc2626);
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 30px;
+            padding: 14px 28px;
+            border-radius: 35px;
             font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+            font-size: 15px;
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
             transition: all 0.3s ease;
             width: 100%;
         }
@@ -156,12 +188,12 @@
         .btn-youtube:hover {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
         }
 
         .btn-youtube svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
     </style>
@@ -169,7 +201,7 @@
 <body>
 
     <div class="container">
-        <!-- Logótipo Oficial Integrado -->
+        <!-- Logótipo Oficial com o filtro adaptado para preto, cinzento e amarelo -->
         <div class="profile-img-container">
             <img src="image_24da9580-c26b-480f-b7e2-27fccf0a095b.png" alt="Cripta TCG Logo" class="profile-img">
         </div>
@@ -177,7 +209,7 @@
         <h1>Cripta TCG</h1>
         <p class="subtitle">Card Games, Estratégias e Colecionáveis</p>
 
-        <!-- Navegação por Abas (Decks e Coleções) -->
+        <!-- Navegação por Abas (Início, Decks e Coleções) -->
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="switchTab(event, 'home')">Início</button>
             <button class="tab-btn" onclick="switchTab(event, 'decks')">Decks</button>
@@ -187,16 +219,16 @@
         <!-- Conteúdo: Início -->
         <div id="home" class="tab-content active">
             <h3>Bem-vindo à Cripta!</h3>
-            <p>Este é o seu ponto de encontro para análises aprofundadas, aberturas épicas e dicas de mercado sobre os seus card games favoritos.</p>
+            <p>O seu ponto de encontro definitivo para análises aprofundadas, aberturas épicas e dicas de mercado sobre os seus card games favoritos.</p>
         </div>
 
         <!-- Conteúdo: Decks -->
         <div id="decks" class="tab-content">
             <h3>Estratégias de Decks</h3>
             <ul>
-                <li>Análises de listas competitivas atuais.</li>
-                <li>Dicas de orçamento: Decks <em>Budget</em> para começar.</li>
-                <li>Combos e sinergias principais do meta.</li>
+                <li>Análises detalhadas de listas competitivas do meta atual.</li>
+                <li>Dicas de orçamento: Decks <em>Budget</em> eficientes para começar.</li>
+                <li>Combos avançados e sinergias principais para dominar as partidas.</li>
             </ul>
         </div>
 
@@ -204,9 +236,9 @@
         <div id="colecoes" class="tab-content">
             <h3>Recomendações de Coleções</h3>
             <ul>
-                <li>Avaliação de custo-benefício por booster.</li>
-                <li>As cartas mais valiosas e raras para monitorizar.</li>
-                <li>Dicas de preservação e armazenamento seguro.</li>
+                <li>Avaliação minuciosa de custo-benefício por booster.</li>
+                <li>Monitorização das cartas mais valiosas, raras e cobiçadas.</li>
+                <li>Dicas essenciais de preservação e armazenamento seguro.</li>
             </ul>
         </div>
 
@@ -219,7 +251,7 @@
         </a>
     </div>
 
-    <!-- Script para controlo das abas -->
+    <!-- Script de transição interativa das abas -->
     <script>
         function switchTab(evt, tabName) {
             const contents = document.querySelectorAll('.tab-content');
