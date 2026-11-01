@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cripta TCG - Oficial</title>
+    <title>Cripta TCG - Hub Oficial</title>
     <!-- Importando a fonte Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -21,26 +21,27 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 20px;
         }
 
         .container {
             text-align: center;
-            background: rgba(17, 24, 39, 0.85);
+            background: rgba(17, 24, 39, 0.9);
             padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            max-width: 450px;
-            width: 90%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
         }
 
-        /* Moldura e adaptação da foto de perfil com o logótipo */
+        /* Foto de perfil / Logo com moldura em tons de azul/ciano do tema */
         .profile-img-container {
             position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 20px auto;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px auto;
         }
 
         .profile-img {
@@ -49,30 +50,92 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #38bdf8;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
         }
 
         h1 {
             font-size: 26px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            margin-bottom: 5px;
         }
 
-        p {
+        .subtitle {
             font-size: 14px;
             color: #9ca3af;
             margin-bottom: 25px;
         }
 
-        /* Botão estilizado para o YouTube */
+        /* Abas de Navegação Interna */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            background: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            display: none;
+            text-align: left;
+            background: rgba(11, 15, 25, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+            min-height: 120px;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            font-size: 15px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .tab-content p, .tab-content ul {
+            font-size: 13px;
+            color: #d1d5db;
+            line-height: 1.4;
+            padding-left: 15px;
+        }
+
+        .tab-content li {
+            margin-bottom: 5px;
+        }
+
+        /* Botão principal de ir para o canal */
         .btn-youtube {
             display: inline-flex;
             align-items: center;
@@ -84,9 +147,10 @@
             padding: 12px 24px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .btn-youtube:hover {
@@ -96,8 +160,8 @@
         }
 
         .btn-youtube svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: currentColor;
         }
     </style>
@@ -105,15 +169,48 @@
 <body>
 
     <div class="container">
-        <!-- Logótipo do Canal como Avatar -->
+        <!-- Logótipo Oficial Integrado -->
         <div class="profile-img-container">
-            <img src="logo.png" alt="Cripta TCG Logo" class="profile-img">
+            <img src="image_24da9580-c26b-480f-b7e2-27fccf0a095b.png" alt="Cripta TCG Logo" class="profile-img">
         </div>
 
         <h1>Cripta TCG</h1>
-        <p>Universo de Card Games e Colecionáveis</p>
+        <p class="subtitle">Card Games, Estratégias e Colecionáveis</p>
 
-        <!-- Link oficial do canal -->
+        <!-- Navegação por Abas (Decks e Coleções) -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(event, 'home')">Início</button>
+            <button class="tab-btn" onclick="switchTab(event, 'decks')">Decks</button>
+            <button class="tab-btn" onclick="switchTab(event, 'colecoes')">Coleções</button>
+        </div>
+
+        <!-- Conteúdo: Início -->
+        <div id="home" class="tab-content active">
+            <h3>Bem-vindo à Cripta!</h3>
+            <p>Este é o seu ponto de encontro para análises aprofundadas, aberturas épicas e dicas de mercado sobre os seus card games favoritos.</p>
+        </div>
+
+        <!-- Conteúdo: Decks -->
+        <div id="decks" class="tab-content">
+            <h3>Estratégias de Decks</h3>
+            <ul>
+                <li>Análises de listas competitivas atuais.</li>
+                <li>Dicas de orçamento: Decks <em>Budget</em> para começar.</li>
+                <li>Combos e sinergias principais do meta.</li>
+            </ul>
+        </div>
+
+        <!-- Conteúdo: Coleções -->
+        <div id="colecoes" class="tab-content">
+            <h3>Recomendações de Coleções</h3>
+            <ul>
+                <li>Avaliação de custo-benefício por booster.</li>
+                <li>As cartas mais valiosas e raras para monitorizar.</li>
+                <li>Dicas de preservação e armazenamento seguro.</li>
+            </ul>
+        </div>
+
+        <!-- Botão de Redirecionamento Direto para o YouTube -->
         <a href="https://www.youtube.com/@criptatcg" target="_blank" class="btn-youtube">
             <svg viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -121,6 +218,20 @@
             Ir para o canal
         </a>
     </div>
+
+    <!-- Script para controlo das abas -->
+    <script>
+        function switchTab(evt, tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
