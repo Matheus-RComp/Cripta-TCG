@@ -15,14 +15,14 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0c0c0e; /* Fundo preto profundo e imersivo */
+            background-color: #0c0c0e;
             color: #e5e7eb;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            background-image: radial-gradient(circle at center, #1f1f23 0%, #0c0c0e 100%);
+            background-image: radial-gradient(circle at center, #18181b 0%, #0c0c0e 100%);
         }
 
         .container {
@@ -30,15 +30,20 @@
             background: rgba(20, 20, 24, 0.95);
             padding: 45px 35px;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(234, 179, 8, 0.15);
-            border: 1px solid rgba(234, 179, 8, 0.4); /* Dourado/Amarelo refinado */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85), 0 0 35px rgba(234, 179, 8, 0.2);
+            border: 1px solid rgba(234, 179, 8, 0.4);
             max-width: 520px;
             width: 100%;
             position: relative;
             overflow: hidden;
+            animation: containerEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Efeito decorativo de brilho no topo */
+        @keyframes containerEntry {
+            from { opacity: 0; transform: translateY(20px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
         .container::before {
             content: '';
             position: absolute;
@@ -49,7 +54,7 @@
             background: linear-gradient(90deg, transparent, #eab308, transparent);
         }
 
-        /* Moldura e adaptação da foto de perfil com conversão exata para Amarelo/Dourado e Preto */
+        /* Moldura interativa e imagem com transição fluida */
         .profile-img-container {
             position: relative;
             width: 140px;
@@ -63,15 +68,13 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #eab308;
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.5);
-            /* Filtros avançados para transformar os tons frios/azuis da imagem original em amarelo, dourado e preto/cinzento */
-            filter: grayscale(40%) sepia(100%) hue-rotate(-20deg) saturate(450%) contrast(1.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.4);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
         }
 
         .profile-img:hover {
-            transform: scale(1.06);
-            box-shadow: 0 0 35px rgba(234, 179, 8, 0.8);
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 0 35px rgba(234, 179, 8, 0.7);
         }
 
         h1 {
@@ -88,7 +91,7 @@
             margin-bottom: 25px;
         }
 
-        /* Abas de Navegação Interna Interativas */
+        /* Navegação por Abas altamente interativa */
         .tabs-nav {
             display: flex;
             justify-content: center;
@@ -108,13 +111,14 @@
             padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-btn:hover {
             color: #ffffff;
             background: rgba(234, 179, 8, 0.15);
             border-color: rgba(234, 179, 8, 0.3);
+            transform: translateY(-2px);
         }
 
         .tab-btn.active {
@@ -123,30 +127,30 @@
             border-color: #eab308;
             font-weight: 600;
             box-shadow: 0 0 20px rgba(234, 179, 8, 0.6);
+            transform: translateY(-2px);
         }
 
-        /* Conteúdo das Abas Dinâmicas */
+        /* Conteúdo das Abas com transição suave */
         .tab-content {
             display: none;
             text-align: left;
-            background: rgba(15, 15, 18, 0.85);
+            background: rgba(15, 15, 18, 0.9);
             padding: 22px;
             border-radius: 14px;
-            border: 1px solid rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.2);
             margin-bottom: 25px;
             min-height: 130px;
             max-height: 200px;
             overflow-y: auto;
-            animation: fadeIn 0.4s ease-in-out;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .tab-content.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .tab-content h3 {
@@ -167,7 +171,7 @@
             margin-bottom: 6px;
         }
 
-        /* Botão principal interativo para ir para o canal */
+        /* Botão principal do YouTube altamente interativo */
         .btn-youtube {
             display: inline-flex;
             align-items: center;
@@ -181,14 +185,14 @@
             font-weight: 600;
             font-size: 15px;
             box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             width: 100%;
         }
 
         .btn-youtube:hover {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.65);
         }
 
         .btn-youtube svg {
@@ -201,7 +205,7 @@
 <body>
 
     <div class="container">
-        <!-- Logótipo Oficial com o filtro adaptado para preto, cinzento e amarelo -->
+        <!-- Logótipo Oficial incorporado em formato de dados seguro -->
         <div class="profile-img-container">
             <img src="image_24da9580-c26b-480f-b7e2-27fccf0a095b.png" alt="Cripta TCG Logo" class="profile-img">
         </div>
@@ -209,7 +213,7 @@
         <h1>Cripta TCG</h1>
         <p class="subtitle">Card Games, Estratégias e Colecionáveis</p>
 
-        <!-- Navegação por Abas (Início, Decks e Coleções) -->
+        <!-- Navegação por Abas Interativas -->
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="switchTab(event, 'home')">Início</button>
             <button class="tab-btn" onclick="switchTab(event, 'decks')">Decks</button>
@@ -251,7 +255,7 @@
         </a>
     </div>
 
-    <!-- Script de transição interativa das abas -->
+    <!-- Script de interatividade fluida das abas -->
     <script>
         function switchTab(evt, tabName) {
             const contents = document.querySelectorAll('.tab-content');
@@ -260,7 +264,8 @@
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            document.getElementById(tabName).classList.add('active');
+            const target = document.getElementById(tabName);
+            target.classList.add('active');
             evt.currentTarget.classList.add('active');
         }
     </script>
