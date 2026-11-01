@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cripta TCG - O Cofre do Pokémon TCG & Análises de Cards</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkblue: {
+                            800: '#0f172a',
+                            900: '#090d16',
+                        },
+                        tcgyellow: '#facc15',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkblue-900 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-tcgyellow selection:text-darkblue-900">
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 bg-darkblue-800/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-tcgyellow to-amber-500 flex items-center justify-center shadow-lg shadow-tcgyellow/20">
+                    <i class="fa-solid fa-vault text-darkblue-900 text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-white">CRIPTA <span class="text-tcgyellow">TCG</span></span>
+                    <span class="block text-[10px] tracking-widest text-slate-400 uppercase font-semibold">O Cofre dos Cards</span>
+                </div>
+            </div>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#noticias" class="hover:text-tcgyellow transition-colors">Notícias</a>
+                <a href="#analises" class="hover:text-tcgyellow transition-colors">Análises & Decks</a>
+                <a href="#precos" class="hover:text-tcgyellow transition-colors">Card Market (Preços)</a>
+                <a href="#youtube" class="hover:text-tcgyellow transition-colors">Canal YouTube</a>
+            </nav>
+
+            <!-- Ações -->
+            <div class="flex items-center space-x-4">
+                <a href="#youtube" class="bg-tcgyellow text-darkblue-900 font-bold px-5 py-2 rounded-full hover:bg-amber-400 transition-all shadow-md shadow-tcgyellow/10 text-sm flex items-center space-x-2">
+                    <i class="fa-brands fa-youtube text-base"></i>
+                    <span>Inscreva-se</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-16 lg:py-24 border-b border-slate-800/60">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-darkblue-900 to-darkblue-900 -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center space-x-2 bg-tcgyellow/10 text-tcgyellow text-xs font-bold px-3 py-1.5 rounded-full border border-tcgyellow/20">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                        <span>Conteúdo Diário sobre Pokémon TCG & Coleções</span>
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Bem-vindo ao <span class="text-tcgyellow underline decoration-tcgyellow/30 decoration-wavy">Cripta TCG</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
+                        Seu portal completo para análises de cartas, listas de decks competitivos, cotação de preços do mercado brasileiro e conteúdos exclusivos do canal!
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#precos" class="bg-tcgyellow text-darkblue-900 font-bold px-6 py-3.5 rounded-xl hover:bg-amber-400 transition-all shadow-lg shadow-tcgyellow/20 flex items-center space-x-2">
+                            <span>Ver Tabela de Preços</span>
+                            <i class="fa-solid fa-chart-line text-xs"></i>
+                        </a>
+                        <a href="#youtube" class="bg-red-600 text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-red-500 transition-all shadow-lg shadow-red-600/20 flex items-center space-x-2">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span>Ir para o YouTube</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card Destaque Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 h-[450px] bg-gradient-to-b from-amber-500/20 to-blue-600/20 rounded-2xl p-3 border border-tcgyellow/40 shadow-2xl shadow-tcgyellow/10 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                        <div class="w-full h-full bg-darkblue-800 rounded-xl flex flex-col justify-between p-5 border border-slate-700 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-tcgyellow/10 rounded-full blur-2xl"></div>
+                            <div class="flex justify-between items-center z-10">
+                                <span class="text-xs font-bold bg-tcgyellow text-darkblue-900 px-2.5 py-1 rounded">EX RARE</span>
+                                <span class="text-tcgyellow font-bold">HP 330</span>
+                            </div>
+                            <div class="my-auto text-center space-y-3 z-10">
+                                <div class="w-24 h-24 mx-auto bg-tcgyellow/20 rounded-full flex items-center justify-center border-2 border-tcgyellow/50">
+                                    <i class="fa-solid fa-dragon text-tcgyellow text-4xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold tracking-wide">Charizard Ex</h3>
+                                <p class="text-xs text-slate-400">"Revelado no cofre do Cripta TCG."</p>
+                            </div>
+                            <div class="border-t border-slate-700 pt-3 flex justify-between items-center text-xs text-slate-400 z-10">
+                               <span>Cripta TCG</span>
+                               <span class="text-tcgyellow font-bold">#006/197</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full space-y-20">
+
+        <!-- NOTÍCIAS RECENTES -->
+        <section id="noticias">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <span class="text-tcgyellow text-xs font-bold uppercase tracking-widest">Atualizações</span>
+                    <h2 class="text-3xl font-extrabold mt-1">Últimas do Blog</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <article class="bg-darkblue-800 rounded-2xl overflow-hidden border border-slate-800 hover:border-tcgyellow/50 transition-all flex flex-col group">
+                    <div class="h-48 bg-gradient-to-br from-blue-900 to-indigo-950 relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-newspaper text-tcgyellow/30 text-5xl group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-darkblue-900/80 text-tcgyellow text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">Metagame</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 text-xs text-slate-400 mb-3">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>Novembro, 2026</span>
+                            <span>•</span>
+                            <span>4 min leitura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-tcgyellow transition-colors">
+                            O impacto das novas cartas EX no cenário competitivo regional
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow">
+                            Análise completa sobre como os arquétipos atuais estão se adaptando às novas mecânicas de dano explosivo.
+                        </p>
+                        <button class="text-tcgyellow font-bold text-sm flex items-center space-x-2 hover:translate-x-1 transition-transform">
+                            <span>Ler artigo completo</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="bg-darkblue-800 rounded-2xl overflow-hidden border border-slate-800 hover:border-tcgyellow/50 transition-all flex flex-col group" id="analises">
+                    <div class="h-48 bg-gradient-to-br from-amber-900/40 to-darkblue-900 relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-chess-board text-tcgyellow/30 text-5xl group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-darkblue-900/80 text-tcgyellow text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">Análise de Deck</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 text-xs text-slate-400 mb-3">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>Novembro, 2026</span>
+                            <span>•</span>
+                            <span>6 min leitura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-tcgyellow transition-colors">
+                            Guia de Decklist: Gardevoir ex em alta nas Lojas Locais
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow">
+                            Descubra a lista otimizada para campeonatos e saiba quais cartas de suporte você deve priorizar.
+                        </p>
+                        <button class="text-tcgyellow font-bold text-sm flex items-center space-x-2 hover:translate-x-1 transition-transform">
+                            <span>Ler artigo completo</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="bg-darkblue-800 rounded-2xl overflow-hidden border border-slate-800 hover:border-tcgyellow/50 transition-all flex flex-col group">
+                    <div class="h-48 bg-gradient-to-br from-blue-950 to-darkblue-900 relative overflow-hidden flex items-center justify-center">
+                        <i class="fa-solid fa-box-open text-tcgyellow/30 text-5xl group-hover:scale-110 transition-transform"></i>
+                        <span class="absolute top-3 left-3 bg-darkblue-900/80 text-tcgyellow text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">Colecionador</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 text-xs text-slate-400 mb-3">
+                            <i class="fa-regular fa-calendar"></i>
+                            <span>Outubro, 2026</span>
+                            <span>•</span>
+                            <span>5 min leitura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-tcgyellow transition-colors">
+                            Dicas essenciais para proteger e organizar seu binder de cartas raras
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow">
+                            Cuidados fundamentais com sleeves, double-sleeves e controle de umidade para manter seus cards em perfeito estado.
+                        </p>
+                        <button class="text-tcgyellow font-bold text-sm flex items-center space-x-2 hover:translate-x-1 transition-transform">
+                            <span>Ler artigo completo</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- TABELA DE PREÇOS (CARD MARKET) -->
+        <section id="precos" class="bg-darkblue-800/60 border border-slate-800 rounded-3xl p-6 sm:p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                    <span class="text-tcgyellow text-xs font-bold uppercase tracking-widest">Cotação Nacional</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Card Market - Tabela de Preços</h2>
+                </div>
+                <div class="bg-darkblue-900 px-4 py-2 rounded-xl border border-slate-700 text-xs text-slate-400">
+                    <i class="fa-solid fa-triangle-exclamation text-tcgyellow mr-1.5"></i> Baseado na média de mercado (LigaPokémon)
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-700 text-slate-400 text-xs uppercase tracking-wider">
+                            <th class="py-3 px-4">Carta / Expansão</th>
+                            <th class="py-3 px-4">Raridade</th>
+                            <th class="py-3 px-4">Preço Médio</th>
+                            <th class="py-3 px-4">Variação (7d)</th>
+                            <th class="py-3 px-4 text-right">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-sm">
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="py-4 px-4 font-bold flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded bg-tcgyellow/10 flex items-center justify-center text-tcgyellow"><i class="fa-solid fa-fire text-xs"></i></div>
+                                <span>Charizard ex (Special Illustration Rare)</span>
+                            </td>
+                            <td class="py-4 px-4 text-slate-400">Ultra Rara</td>
+                            <td class="py-4 px-4 font-semibold text-tcgyellow">R$ 280,00</td>
+                            <td class="py-4 px-4 text-emerald-400"><i class="fa-solid fa-arrow-trend-up text-xs mr-1"></i> +5.2%</td>
+                            <td class="py-4 px-4 text-right"><span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-full font-semibold">Em alta</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="py-4 px-4 font-bold flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded bg-tcgyellow/10 flex items-center justify-center text-tcgyellow"><i class="fa-solid fa-wand-magic-sparkles text-xs"></i></div>
+                                <span>Gardevoir ex</span>
+                            </td>
+                            <td class="py-4 px-4 text-slate-400">Double Rare</td>
+                            <td class="py-4 px-4 font-semibold text-tcgyellow">R$ 35,00</td>
+                            <td class="py-4 px-4 text-emerald-400"><i class="fa-solid fa-arrow-trend-up text-xs mr-1"></i> +1.8%</td>
+                            <td class="py-4 px-4 text-right"><span class="bg-blue-500/10 text-blue-400 text-xs px-2.5 py-1 rounded-full font-semibold">Estável</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="py-4 px-4 font-bold flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded bg-tcgyellow/10 flex items-center justify-center text-tcgyellow"><i class="fa-solid fa-bolt text-xs"></i></div>
+                                <span>Pikachu ex (Promo)</span>
+                            </td>
+                            <td class="py-4 px-4 text-slate-400">Promo</td>
+                            <td class="py-4 px-4 font-semibold text-tcgyellow">R$ 65,00</td>
+                            <td class="py-4 px-4 text-rose-400"><i class="fa-solid fa-arrow-trend-down text-xs mr-1"></i> -2.1%</td>
+                            <td class="py-4 px-4 text-right"><span class="bg-amber-500/10 text-amber-400 text-xs px-2.5 py-1 rounded-full font-semibold">Queda leve</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="py-4 px-4 font-bold flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded bg-tcgyellow/10 flex items-center justify-center text-tcgyellow"><i class="fa-solid fa-shield-halved text-xs"></i></div>
+                                <span>Iono (Full Art Supporter)</span>
+                            </td>
+                            <td class="py-4 px-4 text-slate-400">Special Illustration</td>
+                            <td class="py-4 px-4 font-semibold text-tcgyellow">R$ 190,00</td>
+                            <td class="py-4 px-4 text-emerald-400"><i class="fa-solid fa-arrow-trend-up text-xs mr-1"></i> +4.5%</td>
+                            <td class="py-4 px-4 text-right"><span class="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-1 rounded-full font-semibold">Em alta</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- DESTAQUE DO CANAL DO YOUTUBE -->
+        <section id="youtube" class="bg-gradient-to-r from-red-950/40 via-darkblue-800 to-darkblue-800 border border-red-500/30 rounded-3xl p-8 lg:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 max-w-xl">
+                <span class="inline-flex items-center space-x-2 bg-red-500/10 text-red-400 text-xs font-bold px-3 py-1 rounded-full border border-red-500/20">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>Canal Oficial Cripta TCG</span>
+                </span>
+                <h2 class="text-3xl font-extrabold tracking-tight">Inscreva-se no canal e acompanhe as aberturas!</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Vídeos semanais com análises profundas, aberturas de boosters, dicas de colecionador e tudo o que rola no cenário de TCG. Venha fazer parte da nossa comunidade!
+                </p>
+                <div class="pt-2">
+                    <a href="https://youtube.com" target="_blank" class="bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-red-600/30 inline-flex items-center space-x-3">
+                        <i class="fa-brands fa-youtube text-lg"></i>
+                        <span>Acessar Canal no YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-80 h-48 bg-darkblue-900/80 rounded-2xl border border-slate-700 flex flex-col items-center justify-center p-6 text-center shadow-xl">
+                <div class="w-16 h-16 bg-red-600/20 text-red-500 rounded-full flex items-center justify-center mb-3 text-2xl">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <h4 class="font-bold text-white mb-1">Cripta TCG</h4>
+                <p class="text-xs text-slate-400">Novos vídeos toda semana.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-darkblue-800 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-tcgyellow flex items-center justify-center">
+                        <i class="fa-solid fa-vault text-darkblue-900 text-sm"></i>
+                    </div>
+                    <span class="text-lg font-black tracking-wider text-white">CRIPTA <span class="text-tcgyellow">TCG</span></span>
+                </div>
+                <div class="text-sm text-slate-400 text-center">
+                    © 2026 Cripta TCG. Conteúdo independente sobre Pokémon TCG. Não afiliado à The Pokémon Company.
+                </div>
+                <div class="flex space-x-4 text-slate-400">
+                    <a href="#" class="w-10 h-10 rounded-full bg-darkblue-900 flex items-center justify-center hover:text-tcgyellow hover:bg-slate-700 transition-all"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-darkblue-900 flex items-center justify-center hover:text-tcgyellow hover:bg-slate-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-darkblue-900 flex items-center justify-center hover:text-tcgyellow hover:bg-slate-700 transition-all"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
